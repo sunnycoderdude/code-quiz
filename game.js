@@ -125,7 +125,7 @@ gameQA.addEventListener("click", function(event) {
     } else {
         secondsLeft = secondsLeft - 15;
         response.textContent = "wrong!"
-        if (i === (questionBank.length -1)) {
+        if (i === (questionBank.length)) {
             hideQA();
             showScore();
             timerPlace.textContent = "";
@@ -145,19 +145,22 @@ function showScore() {
     var button = document.querySelector(".btn");
     button.addEventListener("click", function(event) {
         event.preventDefault();
-        var initials = yourInitials.innerText;
+        console.log(yourInitials)
+        var initials = yourInitials.value;
         console.log(initials);
-        var scoreSet = {"initials": "score"};
 
-        scoreSet.initials = initials;
-        scoreSet.score = score;
-
-        var highScore = {initials: score};
-        // highScore.push(scoreSet);
-        // console.log(highScore);
-
-        localStorage.setItem("highScore", JSON.stringify(scoreSet));
+        
+        var highScore = [initials, score];
+        
+        localStorage.setItem("highScore", JSON.stringify(highScore));
 
     });
 };
 
+
+// append high scores
+
+var highScoreToGet = localStorage.getItem("highScore");
+console.log(highScoreToGet);
+var highScorePlace = document.querySelector(".highScores");
+highScorePlace.appendChild("<p>" + highScoreToGet + "</p>");

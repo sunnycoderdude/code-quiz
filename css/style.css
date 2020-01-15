@@ -35,6 +35,14 @@
     display: none;
 }
 
+.highScores {
+    text-align: center;
+    font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
+    color: gray;
+    font: 20px;
+}
+
+
 /* .heading {
     font-family: 'Arial', 'Helvetica Neue', Helvetica, sans-serif;
     text-align: center;
